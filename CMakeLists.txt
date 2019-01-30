@@ -879,8 +879,8 @@ if(LRS_TRY_USE_AVX)
     set_source_files_properties(src/image_avx.cpp PROPERTIES COMPILE_FLAGS -mavx2)
 endif()
 
-option(BUILD_SHARED_LIBS "Build shared library" ON)
-if(BUILD_SHARED_LIBS)
+option(LRS_BUILD_SHARED_LIBS "Build shared library" ON)
+if(LRS_BUILD_SHARED_LIBS)
     if(WIN32)
         add_library(realsense2 SHARED
             ${REALSENSE_CPP} ${REALSENSE_HPP} ${REALSENSE_DEF} ${REALSENSE_CU} ${REALSENSE_CUH}
@@ -892,6 +892,7 @@ if(BUILD_SHARED_LIBS)
         )
     else()
         add_library(realsense2 SHARED ${REALSENSE_CPP} ${REALSENSE_HPP} ${REALSENSE_CU} ${REALSENSE_CUH} ${REALSENSE_DEF})
+        set_target_properties(realsense2 PROPERTIES CXX_VISIBILITY_PRESET default)
     endif()
 else()
         add_library(realsense2 STATIC ${REALSENSE_CPP} ${REALSENSE_HPP} ${REALSENSE_CU} ${REALSENSE_CUH})
@@ -907,7 +908,7 @@ set_target_properties(realsense2 PROPERTIES VERSION ${REALSENSE_VERSION_STRING}
                                 SOVERSION ${REALSENSE_VERSION_MAJOR})
 
 if(ANDROID_NDK_TOOLCHAIN_INCLUDED)
-    if(BUILD_SHARED_LIBS)
+    if(LRS_BUILD_SHARED_LIBS)
         find_library(log-lib log)
         target_link_libraries(realsense2 PRIVATE realsense-file ${CMAKE_THREAD_LIBS_INIT} ${TRACKING_DEVICE_LIBS} log)
     else()
