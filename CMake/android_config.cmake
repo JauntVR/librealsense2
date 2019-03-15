@@ -29,7 +29,7 @@ macro(os_set_flags)
 endmacro()
 
 macro(os_target_config)
-    if(BUILD_SHARED_LIBS)
+    if(LRS_BUILD_SHARED_LIBS)
         find_library(log-lib log)
         target_link_libraries(${LRS_TARGET} PRIVATE log)
     endif()

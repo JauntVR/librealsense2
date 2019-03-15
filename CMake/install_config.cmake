@@ -1,7 +1,7 @@
 # Set CMAKE_INSTALL_* if not defined
 set(CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/${LRS_TARGET}")
 
-add_custom_target(uninstall "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
+#add_custom_target(uninstall "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 
 include(CMakePackageConfigHelpers)
 
@@ -14,7 +14,7 @@ configure_package_config_file(CMake/realsense2Config.cmake.in realsense2Config.c
     PATH_VARS CMAKE_INSTALL_INCLUDEDIR
 )
 
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake" "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake" IMMEDIATE @ONLY)
+#configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake" "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake" IMMEDIATE @ONLY)
 configure_file(config/librealsense.pc.in config/realsense2.pc @ONLY)
 
 install(TARGETS ${LRS_TARGET}

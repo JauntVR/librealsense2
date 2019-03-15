@@ -20,8 +20,9 @@ os_set_flags()
 # macro definition located at "CMake/global_config.cmake"
 global_set_flags()
 
-if(BUILD_SHARED_LIBS)
+if(LRS_BUILD_SHARED_LIBS)
     add_library(${LRS_TARGET} SHARED "")
+    set_target_properties(${LRS_TARGET} PROPERTIES CXX_VISIBILITY_PRESET default)
 else()
     add_library(${LRS_TARGET} STATIC "")
 endif()
