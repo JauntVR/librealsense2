@@ -1,5 +1,4 @@
 bin/
-lib/
 
 ubuntu-xenial/
 ubuntu-xenial-hwe/
@@ -68,7 +67,6 @@ librealsense-log.txt
 *.tlog
 *.obj
 *.ilk
-*.pdb
 *.exp
 *.log
 *.stamp
@@ -76,13 +74,11 @@ librealsense-log.txt
 *.vcxproj
 *.exe
 *.cache
-*.lib
 *.filters
 *.db
 *.opendb
 *.rule
 *.check_cache
-*.dll
 *.list
 *.json
 *.ini

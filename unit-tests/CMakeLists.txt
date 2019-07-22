@@ -182,6 +182,6 @@ foreach(i ${PP_Rosbag_Recordings_List})
     endif()
 endforeach(i)
 
-if(NOT ${BUILD_SHARED_LIBS} AND ${BUILD_INTERNAL_UNIT_TESTS})
+if(NOT ${LRS_BUILD_SHARED_LIBS} AND ${BUILD_INTERNAL_UNIT_TESTS})
     add_subdirectory(internal)
 endif()

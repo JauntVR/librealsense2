@@ -37,7 +37,7 @@ set(REALSENSE_GL_CPP
 #replaced with
 include(${CMAKE_SOURCE_DIR}/CMake/opengl_config.cmake)
 
-if (${BUILD_SHARED_LIBS} AND ${BUILD_EASYLOGGINGPP})
+if (${LRS_BUILD_SHARED_LIBS} AND ${BUILD_EASYLOGGINGPP})
     list(APPEND REALSENSE_GL_CPP ../../third-party/easyloggingpp/src/easylogging++.cc)
 endif()
 
@@ -51,7 +51,7 @@ source_group("API" FILES
 
 add_library(${LRS_GL_TARGET} ${REALSENSE_GL_CPP})
 
-if(BUILD_SHARED_LIBS)
+if(LRS_BUILD_SHARED_LIBS)
     add_definitions(-DSHARED_LIBS)
 endif()
 
